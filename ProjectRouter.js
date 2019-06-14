@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const projects = await projectsModel.get();
+        const projects = await projectModel.get();
         res.status(200).json(projects);
     }catch(error) {
         res.status(404).json({ message: error});
@@ -36,7 +36,7 @@ router.get('/projectActions/:projectId', async (req, res) => {
     }
 })
 
-router.post('/', async (req,res) => {
+router.post('/', async (req, res) => {
     try{
         const newProject = req.body;
         const addedProject = await projectModel.insert(newProject);
