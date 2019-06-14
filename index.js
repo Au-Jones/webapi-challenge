@@ -1,3 +1,30 @@
+const express = require('express');
+const projectsRouter = require('./projects/projectsRouter');
+const actionsRouter = require('./actionss/actionsRouter')
+
+const server = express()
+
+server.use(express.json())
+server.use('/projects', projectsRouter);
+server.use('/actions', actionsRouter);
+
+server.get('/', (req, res) => {
+    res.send('Hello World')
+})
+
+server.listen(5555, () => {
+    console.log('running on port 5555')
+})
+
+
+
+
+
+
+
+
+
+
 /*
 play this: https://www.youtube.com/watch?v=d-diB65scQU
 
@@ -12,3 +39,4 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
